@@ -14,11 +14,8 @@
             background-size: cover;
             background-position: center;
         }
-        /* ทางลับ Admin: พรางตัวไม่ให้ดูเหมือนลิงก์ */
-        #admin-entry {
-            cursor: default;
-            user-select: none;
-        }
+        /* ทางลับ: พรางตัวเป็นข้อความปกติ */
+        #admin-entry { cursor: default; user-select: none; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
@@ -26,164 +23,191 @@
     <nav class="bg-white shadow-md fixed w-full z-50 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div id="admin-entry" class="flex-shrink-0 flex items-center gap-2">
+                <div id="admin-entry" class="flex-shrink-0 flex items-center gap-2 transition active:scale-95">
                     <i class='bx bxs-building-house text-3xl text-blue-700'></i>
-                    <span class="font-bold text-xl text-blue-900 tracking-wide">
-                        CHAROEN KRUNG 
-                        <span class="text-sm font-normal block -mt-1 text-gray-500">CONDOMINIUM 3</span>
-                    </span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl text-blue-900 tracking-wide leading-tight">CHAROEN KRUNG</span>
+                        <span class="text-xs font-normal text-gray-500">CONDOMINIUM 3</span>
+                    </div>
                 </div>
 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#" class="text-blue-700 font-medium hover:text-blue-900">หน้าแรก</a>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#" class="text-blue-700">หน้าแรก</a>
                     <a href="#news" class="text-gray-600 hover:text-blue-700 transition">ข่าวสาร</a>
                     <a href="#contact" class="text-gray-600 hover:text-blue-700 transition">ติดต่อเรา</a>
                 </div>
                 <div>
-                    <button onclick="toggleLoginModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-sm transition font-medium flex items-center gap-2">
-                        <i class='bx bx-log-in-circle text-xl'></i> ระบบลูกบ้าน
+                    <button onclick="toggleLoginModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl shadow-md transition flex items-center gap-2">
+                        <i class='bx bx-user-circle text-xl'></i> ระบบลูกบ้าน
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero-bg h-[60vh] mt-16 flex items-center justify-center text-center px-4">
+    <header class="hero-bg h-[55vh] mt-16 flex items-center justify-center text-center px-4">
         <div class="text-white max-w-3xl">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">ยินดีต้อนรับสู่สังคมคุณภาพ</h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-8">เจริญกรุงคอนโดมิเนียม 3 พื้นที่แห่งความสุข สะดวก ปลอดภัย สำหรับคุณและครอบครัว</p>
-            <div class="bg-red-600 text-white px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-lg animate-pulse">
+            <p class="text-lg md:text-xl text-gray-200 mb-8 font-light">พื้นที่แห่งความสุข สะดวก ปลอดภัย สำหรับคุณและครอบครัว</p>
+            <div class="bg-red-600/90 backdrop-blur-sm text-white px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-xl animate-pulse border border-red-500">
                 <i class='bx bxs-bell-ring text-xl'></i>
-                <span><strong>ประกาศด่วน:</strong> ปิดระบบน้ำประปาเพื่อซ่อมบำรุง วันที่ 5 มี.ค. เวลา 10:00 - 14:00 น.</span>
+                <span class="text-sm md:text-base"><strong>ประกาศด่วน:</strong> ปิดระบบน้ำประปาเพื่อซ่อมบำรุง 5 มี.ค. 10:00 - 14:00 น.</span>
             </div>
         </div>
     </header>
 
     <section id="news" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-800">ข่าวสารและประกาศล่าสุด</h2>
-            <div class="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded"></div>
+        <div class="flex items-center justify-between mb-10">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800">ข่าวสารและประกาศ</h2>
+                <div class="w-12 h-1 bg-blue-600 mt-2 rounded"></div>
+            </div>
+            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium text-sm">ดูทั้งหมด <i class='bx bx-right-arrow-alt'></i></a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
                 <div class="p-6">
-                    <div class="text-sm text-blue-600 font-semibold mb-2">แจ้งเพื่อทราบ</div>
-                    <h3 class="text-xl font-bold mb-2">กำหนดการล้างแอร์ประจำปี 2569</h3>
-                    <p class="text-gray-600 text-sm mb-4">นิติบุคคลขอแจ้งกำหนดการเข้าล้างแอร์ประจำปี สำหรับลูกบ้านที่ลงทะเบียนไว้...</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500">
+                    <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full">แจ้งเพื่อทราบ</span>
+                    <h3 class="text-xl font-bold mt-3 mb-2 text-gray-800">กำหนดการล้างแอร์ประจำปี 2569</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">นิติบุคคลขอแจ้งกำหนดการเข้าล้างแอร์ประจำปี สำหรับลูกบ้านที่ลงทะเบียนไว้...</p>
+                    <div class="flex justify-between items-center text-xs text-gray-400 border-t pt-4">
                         <span><i class='bx bx-calendar'></i> 1 มี.ค. 2569</span>
-                        <a href="#" class="text-blue-600 hover:underline font-medium">อ่านต่อ &rarr;</a>
+                        <span class="text-blue-600 font-bold">อ่านต่อ</span>
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
                 <div class="p-6">
-                    <div class="text-sm text-green-600 font-semibold mb-2">ระเบียบส่วนกลาง</div>
-                    <h3 class="text-xl font-bold mb-2">อัพเดทระเบียบการใช้สระว่ายน้ำ</h3>
-                    <p class="text-gray-600 text-sm mb-4">ขอความร่วมมือลูกบ้านทุกท่านสวมชุดว่ายน้ำและล้างตัวก่อนลงสระทุกครั้ง...</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500">
+                    <span class="px-3 py-1 bg-green-50 text-green-600 text-xs font-bold rounded-full">ระเบียบส่วนกลาง</span>
+                    <h3 class="text-xl font-bold mt-3 mb-2 text-gray-800">อัพเดทระเบียบการใช้สระว่ายน้ำ</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">ขอความร่วมมือลูกบ้านทุกท่านสวมชุดว่ายน้ำและล้างตัวก่อนลงสระทุกครั้ง...</p>
+                    <div class="flex justify-between items-center text-xs text-gray-400 border-t pt-4">
                         <span><i class='bx bx-calendar'></i> 25 ก.พ. 2569</span>
-                        <a href="#" class="text-blue-600 hover:underline font-medium">อ่านต่อ &rarr;</a>
+                        <span class="text-blue-600 font-bold">อ่านต่อ</span>
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop" class="w-full h-48 object-cover group-hover:scale-110 transition duration-500">
+                </div>
                 <div class="p-6">
-                    <div class="text-sm text-purple-600 font-semibold mb-2">รายงาน</div>
-                    <h3 class="text-xl font-bold mb-2">สรุปงบการเงิน ประจำเดือน ก.พ.</h3>
-                    <p class="text-gray-600 text-sm mb-4">ลูกบ้านสามารถดาวน์โหลดไฟล์รายงานสรุปรายรับ-รายจ่ายของนิติบุคคลได้ที่นี่...</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500">
+                    <span class="px-3 py-1 bg-purple-50 text-purple-600 text-xs font-bold rounded-full">รายงาน</span>
+                    <h3 class="text-xl font-bold mt-3 mb-2 text-gray-800">สรุปงบการเงิน ประจำเดือน ก.พ.</h3>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">ลูกบ้านสามารถดาวน์โหลดไฟล์รายงานสรุปรายรับ-รายจ่ายของนิติบุคคลได้ที่นี่...</p>
+                    <div class="flex justify-between items-center text-xs text-gray-400 border-t pt-4">
                         <span><i class='bx bx-calendar'></i> 20 ก.พ. 2569</span>
-                        <a href="#" class="text-blue-600 hover:underline font-medium">ดาวน์โหลด PDF &rarr;</a>
+                        <span class="text-blue-600 font-bold">ดาวน์โหลด</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-900 text-gray-300 py-12 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer id="contact" class="bg-gray-900 text-gray-400 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
                 <h4 class="text-white text-lg font-bold mb-4">เจริญกรุง คอนโดมิเนียม3</h4>
-                <p class="text-sm text-gray-400">630 ถนนเจริญกรุง แขวงบางคอแหลม <br>เขตบางคอแหลม กรุงเทพมหานคร 10120</p>
+                <p class="text-sm leading-relaxed">630 ถนนเจริญกรุง แขวงบางคอแหลม <br>เขตบางคอแหลม กรุงเทพมหานคร 10120</p>
+                <div class="flex gap-4 mt-4 text-2xl text-gray-500">
+                    <i class='bx bxl-facebook-circle hover:text-blue-500 transition cursor-pointer'></i>
+                    <i class='bx bxl-line hover:text-green-500 transition cursor-pointer'></i>
+                </div>
             </div>
             <div>
-                <h4 class="text-white text-lg font-bold mb-4">ติดต่อส่วนหน้า (นิติบุคคล)</h4>
-                <ul class="text-sm space-y-2">
-                    <li><i class='bx bxs-phone'></i> โทรศัพท์: 02-123-4567</li>
-                    <li><i class='bx bxl-line'></i> Line Official: @charoenkrungcondo3</li>
-                    <li><i class='bx bx-envelope'></i> อีเมล: juristic@charoenkrung.com</li>
+                <h4 class="text-white text-lg font-bold mb-4">นิติบุคคล</h4>
+                <ul class="text-sm space-y-3">
+                    <li class="flex items-center gap-2"><i class='bx bx-phone text-blue-500'></i> 02-123-4567</li>
+                    <li class="flex items-center gap-2"><i class='bx bx-envelope text-blue-500'></i> juristic@charoenkrung.com</li>
+                    <li class="flex items-center gap-2 text-red-400 font-bold"><i class='bx bx-support'></i> ฉุกเฉิน: 02-123-4599</li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white text-lg font-bold mb-4">เวลาทำการ</h4>
-                <ul class="text-sm space-y-2 text-gray-400">
+                <ul class="text-sm space-y-2">
                     <li>จันทร์ - ศุกร์: 09:00 - 18:00 น.</li>
                     <li>เสาร์ - อาทิตย์: 09:00 - 12:00 น.</li>
-                    <li class="text-red-400 mt-2"><i class='bx bxs-error-circle'></i> เบอร์ฉุกเฉิน 24 ชม. (รปภ.): 02-123-4599</li>
                 </ul>
             </div>
         </div>
-        <div class="text-center text-sm text-gray-500 mt-8 pt-8 border-t border-gray-700">
-            &copy; 2026 CHAROEN KRUNG CONDOMINIUM 3. All rights reserved.
+        <div class="text-center text-xs text-gray-600 mt-12 pt-8 border-t border-gray-800 tracking-widest">
+            &copy; 2026 CHAROEN KRUNG CONDOMINIUM 3. ALL RIGHTS RESERVED.
         </div>
     </footer>
 
-    <div id="loginModal" class="fixed inset-0 bg-black/60 z-[60] hidden flex items-center justify-center backdrop-blur-sm">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden relative mx-4">
-            <button onclick="toggleLoginModal()" class="absolute right-4 top-4 text-gray-400 hover:text-gray-600">
+    <div id="loginModal" class="fixed inset-0 bg-black/60 z-[60] hidden flex items-center justify-center backdrop-blur-sm p-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden relative">
+            <button onclick="toggleLoginModal()" class="absolute right-5 top-5 text-gray-300 hover:text-gray-600 transition">
                 <i class='bx bx-x text-3xl'></i>
             </button>
             <div class="p-8">
                 <div class="text-center mb-8">
-                    <i class='bx bxs-user-circle text-6xl text-blue-600 mb-2'></i>
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class='bx bxs-user-pin text-4xl text-blue-600'></i>
+                    </div>
                     <h2 class="text-2xl font-bold text-gray-800">เข้าสู่ระบบ</h2>
-                    <p class="text-gray-500">สำหรับลูกบ้านและเจ้าหน้าที่</p>
+                    <p class="text-gray-400 text-sm">สำหรับลูกบ้านและเจ้าหน้าที่</p>
                 </div>
                 <form class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">ชื่อผู้ใช้งาน</label>
-                        <input type="text" placeholder="Username" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">รหัสผ่าน</label>
-                        <input type="password" placeholder="Password" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none transition">
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-200 transition">
-                        ตกลง
-                    </button>
+                    <input type="text" placeholder="Username" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:border-blue-500 focus:bg-white outline-none transition">
+                    <input type="password" placeholder="Password" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 focus:border-blue-500 focus:bg-white outline-none transition">
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg transition">ตกลง</button>
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        // 1. ฟังก์ชันทางลับเข้า Admin พร้อมรหัสผ่าน
+        // 1. ระบบทางลับสำหรับเจ้าหน้าที่ (พรางตัว)
+        let failCount = 0;
+
         document.getElementById('admin-entry').addEventListener('click', function() {
-            const pass = prompt("กรุณาใส่รหัสผ่านผู้ดูแลระบบ (Dev Only):");
-            if (pass === "Abc@1632") {
-                window.location.href = 'https://chaichana-dev-io.github.io/charoenkrung-condo3-admin/';
-            } else if (pass !== null) {
-                alert("รหัสผ่านไม่ถูกต้อง!");
-            }
+            verifyStaff();
         });
 
-        // 2. ฟังก์ชันเปิด-ปิด Login Modal
-        function toggleLoginModal() {
-            const modal = document.getElementById('loginModal');
-            modal.classList.toggle('hidden');
+        function verifyStaff() {
+            const pass = prompt("ระบบความปลอดภัย: กรุณายืนยันรหัสพนักงาน (Staff Only)");
+
+            // กรณีต้องการกลับหน้าหลัก (กด Cancel)
+            if (pass === null) return;
+
+            if (pass === "Abc@1632") {
+                failCount = 0;
+                window.location.href = 'https://chaichana-dev-io.github.io/charoenkrung-condo3-admin/';
+            } else {
+                failCount++;
+                if (failCount >= 2) {
+                    alert("ขออภัย! ยืนยันตัวตนไม่สำเร็จ ระบบจะรีเซ็ตกลับสู่หน้าหลัก");
+                    failCount = 0;
+                    window.location.href = 'https://chaichana-dev-io.github.io/charoenkrung-condo3-index/';
+                } else {
+                    const retry = confirm("ข้อมูลไม่ถูกต้อง! ต้องการลองใหม่อีกครั้งหรือไม่? (หากผิดครั้งถัดไปจะกลับสู่หน้าหลัก)");
+                    if (retry) {
+                        verifyStaff();
+                    } else {
+                        // ถ้าไม่ลองต่อ ให้ถือว่าจบการทำงาน
+                        failCount = 0;
+                    }
+                }
+            }
         }
 
-        // ปิด Modal เมื่อคลิกพื้นหลัง
-        window.onclick = function(event) {
+        // 2. ฟังก์ชันเปิด-ปิด Modal
+        function toggleLoginModal() {
+            document.getElementById('loginModal').classList.toggle('hidden');
+        }
+
+        // ปิด Modal เมื่อคลิกด้านนอก
+        window.onclick = function(e) {
             const modal = document.getElementById('loginModal');
-            if (event.target == modal) {
-                toggleLoginModal();
-            }
+            if (e.target == modal) toggleLoginModal();
         }
     </script>
 
